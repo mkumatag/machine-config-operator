@@ -207,6 +207,7 @@ func (optr *Operator) initializeClusterOperator() (*configv1.ClusterOperator, er
 	cov1helpers.SetStatusCondition(&co.Status.Conditions, configv1.ClusterOperatorStatusCondition{Type: configv1.OperatorAvailable, Status: configv1.ConditionFalse})
 	cov1helpers.SetStatusCondition(&co.Status.Conditions, configv1.ClusterOperatorStatusCondition{Type: configv1.OperatorProgressing, Status: configv1.ConditionFalse})
 	cov1helpers.SetStatusCondition(&co.Status.Conditions, configv1.ClusterOperatorStatusCondition{Type: configv1.OperatorDegraded, Status: configv1.ConditionFalse})
+	cov1helpers.SetStatusCondition(&co.Status.Conditions, configv1.ClusterOperatorStatusCondition{Type: configv1.OperatorUpgradeable, Status: configv1.ConditionTrue})
 	// RelatedObjects are consumed by https://github.com/openshift/must-gather
 	co.Status.RelatedObjects = []configv1.ObjectReference{
 		{Resource: "namespaces", Name: optr.namespace},
